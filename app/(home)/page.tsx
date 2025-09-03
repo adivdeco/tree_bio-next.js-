@@ -37,6 +37,7 @@ export default async function Home() {
                             help you share everything you create, curate and sell from your
                             social media profiles.
                         </p>
+
                     </div>
 
                     {/* CTA Button */}
