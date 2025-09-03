@@ -1,24 +1,3 @@
-// import React from "react";
-
-
-// export default function Navbar() {
-//     return (
-//         <div className="w-[60%] h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4">
-//             <div className="text-xl font-bold text-gray-800">TreeBio</div>
-//             <div className="flex items-center space-x-4">
-//                 <button className="text-gray-600 hover:text-gray-800">Home</button>
-//                 <button className="text-gray-600 hover:text-gray-800">About</button>
-//                 <button className="text-gray-600 hover:text-gray-800">Contact</button>
-//                 <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-//                     Sign In
-//                 </button>
-//             </div>
-//         </div>
-//     );
-// };
-
-// // export default Navbar;
-
 
 
 import { Button } from "@/components/ui/button";
@@ -28,8 +7,8 @@ import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 import Link from "next/link";
 import Image from "next/image";
-// import { ModeToggle } from "@/components/theme-toggle";
-// import UserControl from "./user-control";
+import { ModeToggle } from "@/components/theme-toggle";
+import UserControl from "@/modules/home/components/usercontrol";
 
 const Navbar = () => {
     return (
@@ -44,10 +23,11 @@ const Navbar = () => {
                     </Link>
 
                     <div className="flex items-center gap-4">
-                        {/* <ModeToggle /> */}
+                        <ModeToggle />
+
                         <SignedIn >
-                            {/* <UserControl /> */}
-                            <UserButton showName />
+                            <UserControl showName />
+                            {/* <UserButton showName /> */}    {/* in built featuure of clerk for user profile  */}
                         </SignedIn>
 
                         <SignedOut>
@@ -57,7 +37,7 @@ const Navbar = () => {
                                     <Button
                                         variant="ghost"
                                         size="sm"
-                                        className="text-sm font-medium hover:bg-white/20 dark:hover:bg-white/10"
+                                        className="text-sm font-medium bg-amber-300 hover:bg-white/20 dark:hover:bg-white/10"
                                     >
                                         Sign In
                                     </Button>

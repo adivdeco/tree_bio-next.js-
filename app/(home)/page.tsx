@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-// import { onBoardUser } from "@/modules/auth/actions";
+import { onBordUser } from "@/modules/auth/actions";
+import ClaimLinkForm from "@/modules/home/components/claim-link-form";
 // import ClaimLinkForm from "@/modules/home/components/cliam-link-form";
 // import { getCurrentUsername } from "@/modules/profile/actions";
 
@@ -7,7 +8,9 @@ import { Button } from "@/components/ui/button";
 // import Link from "next/link";
 // import { redirect } from "next/navigation";
 
-export default async function Home() {
+
+const HomePage = async () => {
+    await onBordUser();
     //   const user = await onBoardUser();
     //   const profile = await getCurrentUsername();
 
@@ -15,8 +18,6 @@ export default async function Home() {
     //   if (!user.success) {
     //     return redirect("/sign-in");
     //   }
-
-
     return (
         <div className="min-h-screen ">
             {/* Header */}
@@ -51,7 +52,7 @@ export default async function Home() {
                 </Link>
               )
             }
-           
+
           </div> */}
 
                 </section>
@@ -59,7 +60,7 @@ export default async function Home() {
                 {/* Claim Link Section */}
                 <section className="pb-16 md:pb-24">
                     <div className="max-w-md mx-auto">
-                        {/* <ClaimLinkForm /> */}
+                        <ClaimLinkForm />
                     </div>
                 </section>
 
@@ -67,3 +68,6 @@ export default async function Home() {
         </div>
     );
 }
+
+
+export default HomePage;
