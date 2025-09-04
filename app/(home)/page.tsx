@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { onBordUser } from "@/modules/auth/actions";
 import ClaimLinkForm from "@/modules/home/components/claim-link-form";
-// import ClaimLinkForm from "@/modules/home/components/cliam-link-form";
 // import { getCurrentUsername } from "@/modules/profile/actions";
 
 
@@ -24,7 +23,7 @@ const HomePage = async () => {
 
             {/* Main Content */}
             <main className="flex flex-col max-w-4xl mx-auto px-6">
-                <section className="text-center space-y-8 py-32">
+                <section className="text-center space-y-8 py-32 mt-48">
                     {/* Hero Text */}
                     <div className="space-y-6">
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-zinc-700 dark:text-zinc-100">
@@ -58,7 +57,7 @@ const HomePage = async () => {
                 </section>
 
                 {/* Claim Link Section */}
-                <section className="pb-16 md:pb-24">
+                <section className="pb-16 md:pb-52 mt-40">
                     <div className="max-w-md mx-auto">
                         <ClaimLinkForm />
                     </div>

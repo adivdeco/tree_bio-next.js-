@@ -13,7 +13,7 @@ const Layout = ({ children }: Props) => {
 
             <div className="relative flex  w-full flex-col items-center justify-center ">
 
-                <DotPattern glow={true} className={cn("[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]")} />
+                <DotPattern glow={true} className={cn("[mask-image:radial-gradient(850px_circle_at_center,white,transparent)]")} />
                 {children}
 
             </div>

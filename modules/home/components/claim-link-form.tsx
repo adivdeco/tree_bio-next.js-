@@ -6,6 +6,7 @@ import { Check, Link, Loader2, Sparkles, Crown, Zap, Target } from "lucide-react
 import { checkProfileUsernameAvailability, claimUsername } from "@/modules/profile/action";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { Highlighter } from "@/components/magicui/highlighter";
 
 const ClaimLinkForm = () => {
     const router = useRouter();
@@ -78,9 +79,20 @@ const ClaimLinkForm = () => {
                         <Sparkles className="w-5 h-5 text-yellow-400 absolute -top-1 -right-2 animate-pulse" />
                     </div>
                 </div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                    Claim Your Unique Link
-                </h2>
+
+                <p className="text-3xl font-bold ">
+                    Claim Your{" "}
+                    <Highlighter action="underline" color="#FF9800">
+                        Unique Link
+                    </Highlighter>{" "}
+                    In One{" "}
+                    <p className="mt-4">
+                        <Highlighter action="highlight" color="#41B313">
+                            Click{" "}
+                        </Highlighter>{" "}
+                    </p>
+                </p>
+
                 <p className="text-neutral-600 dark:text-neutral-400">
                     Secure your personalized TreeBio URL to share with the world
                 </p>
@@ -206,18 +218,20 @@ const ClaimLinkForm = () => {
             </form>
 
             {/* Preview */}
-            {linkValue && isAvailable && (
-                <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl border border-blue-200 dark:border-blue-700/50 animate-fadeIn">
-                    <div className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2 flex items-center gap-2">
-                        <Link className="w-4 h-4" />
-                        Your personalized link:
+            {
+                linkValue && isAvailable && (
+                    <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl border border-blue-200 dark:border-blue-700/50 animate-fadeIn">
+                        <div className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2 flex items-center gap-2">
+                            <Link className="w-4 h-4" />
+                            Your personalized link:
+                        </div>
+                        <div className="font-mono text-sm bg-white dark:bg-blue-900/30 p-3 rounded-lg border border-blue-100 dark:border-blue-800 text-blue-700 dark:text-blue-200">
+                            {displayOrigin}/{linkValue}
+                        </div>
                     </div>
-                    <div className="font-mono text-sm bg-white dark:bg-blue-900/30 p-3 rounded-lg border border-blue-100 dark:border-blue-800 text-blue-700 dark:text-blue-200">
-                        {displayOrigin}/{linkValue}
-                    </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
     );
 };
 
