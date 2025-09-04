@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { onBordUser } from "@/modules/auth/actions";
 import ClaimLinkForm from "@/modules/home/components/claim-link-form";
-// import { getCurrentUsername } from "@/modules/profile/actions";
+import { getCurrentUsername } from "@/modules/profile/action";
+import { redirect } from "next/dist/server/api-utils";
+import Link from "next/link";
 
 
 // import Link from "next/link";
@@ -9,21 +11,26 @@ import ClaimLinkForm from "@/modules/home/components/claim-link-form";
 
 
 const HomePage = async () => {
-    await onBordUser();
-    //   const user = await onBoardUser();
-    //   const profile = await getCurrentUsername();
+    // await onBordUser();
+    const user = await onBordUser();
+    console.log(user.sucess);
+
+    const profile = await getCurrentUsername();
+    console.log(profile?.username);
 
 
-    //   if (!user.success) {
+
+    //   if (!user.sucess) {
     //     return redirect("/sign-in");
     //   }
+
     return (
         <div className="min-h-screen ">
             {/* Header */}
 
             {/* Main Content */}
             <main className="flex flex-col max-w-4xl mx-auto px-6">
-                <section className="text-center space-y-8 py-32 mt-48">
+                <section className="text-center space-y-8 py-32 mt-40">
                     {/* Hero Text */}
                     <div className="space-y-6">
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-zinc-700 dark:text-zinc-100">
@@ -41,22 +48,24 @@ const HomePage = async () => {
                     </div>
 
                     {/* CTA Button */}
-                    {/* <div className="pt-4">
-            {
-              user.success && profile?.username && (
-                <Link href="/admin/my-tree">
-                  <Button size="lg" className="px-8 py-3 text-lg font-medium cursor-pointer">
-                    TreeBio Dashboard
-                  </Button>
-                </Link>
-              )
-            }
+                    <div className="pt-4">
 
-          </div> */}
+                        {
+                            user.sucess && profile?.username && (
+                                <Link href="/admin/my-tree">
+                                    <Button size="lg" className="px-8 py-3 text-lg font-medium cursor-pointer">
+                                        TreeBio Dashboard
+                                    </Button>
+                                </Link>
+                            )
+                        }
+
+                    </div>
 
                 </section>
 
                 {/* Claim Link Section */}
+
                 <section className="pb-16 md:pb-52 mt-40">
                     <div className="max-w-md mx-auto">
                         <ClaimLinkForm />
