@@ -849,9 +849,9 @@ const LinkForm = ({ username, bio, links: initialLinks }: Props) => {
 
           {/* Additional decorative elements */}
           <div className="flex justify-center mt-3 space-x-4">
-            <div className="h-px w-8 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
-            <div className="h-px w-8 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
-            <div className="h-px w-8 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+            <div className="h-px w-8 animate-pulse  bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
+            <div className="h-px w-8 animate-pulse  bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+            <div className="h-px w-8 animate-pulse  bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
           </div>
 
           {/* Social links */}
