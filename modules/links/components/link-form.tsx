@@ -397,6 +397,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
+import { HeartIcon } from "../components/hearticon";
 import {
   Plus,
   Instagram,
@@ -412,6 +413,11 @@ import {
   Github,
   Twitter,
   Linkedin,
+  Heart,
+  GitCommitIcon,
+  GithubIcon,
+  InstagramIcon,
+
 } from "lucide-react";
 import { Link } from "@prisma/client";
 import { LinkCard, LinkFormWithPreview } from "./link-card";
@@ -767,6 +773,7 @@ const LinkForm = ({ username, bio, links: initialLinks }: Props) => {
                 <Plus size={14} className="mr-1" />
                 Add Social
               </Button>
+
             </div>
           </div>
         </CardContent>
@@ -827,7 +834,59 @@ const LinkForm = ({ username, bio, links: initialLinks }: Props) => {
           View Archive
         </Button>
       </div>
+      {/* <footer>
+        <p className="text-xs text-gray-500 text-center mt-4 flex items-center justify-center gap-1">
+          Made with <Heart className="text-red-500 bg-red-400  animate-pulse " /> by adiv
+        </p>
+
+      </footer> */}
+      <footer className="w-full py-6 px-4 border-t border-gray-800 bg-gradient-to-b from-gray-900 to-black">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-sm text-gray-300 text-center flex items-center justify-center gap-1.5">
+            Crafted with <HeartIcon className="text-red-500 animate-pulse" /> by
+            <span className="font-medium text-white">adiv</span>
+          </p>
+
+          {/* Additional decorative elements */}
+          <div className="flex justify-center mt-3 space-x-4">
+            <div className="h-px w-8 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
+            <div className="h-px w-8 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+            <div className="h-px w-8 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+          </div>
+
+          {/* Social links */}
+          <div className="flex justify-center mt-4 space-x-5">
+            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <GithubIcon />
+            </a>
+            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+              <Twitter />
+            </a>
+            <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-300">
+              <Linkedin />
+            </a>
+            <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors duration-300">
+              <InstagramIcon />
+            </a>
+
+          </div>
+        </div>
+
+
+      </footer>
+      <style >{`
+        @keyframes pulse-glow {
+          0% { filter: drop-shadow(0 10px 2px rgba(239, 68, 68, 0.7)); }
+          50% { filter: drop-shadow(0 10px 6px rgba(239, 68, 68, 0.9)); }
+          100% { filter: drop-shadow(0 30px 2px rgba(239, 68, 68, 0.7)); }
+        }
+        
+        .animate-pulse {
+          animation: pulse-glow 4.5s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
+        }
+      `}</style>
     </div>
+
   );
 };
 
